@@ -178,6 +178,10 @@ class AxolotlReceivelayer(AxolotlBaseLayer):
         if not m or not serializedData:
             raise ValueError("Empty message")
 
+        if 'audio' in serializedData:
+            handled = True
+             
+
         if m.HasField("sender_key_distribution_message"):
             handled = True
             axolotlAddress = AxolotlAddress(encMessageProtocolEntity.getParticipant(False), 0)
